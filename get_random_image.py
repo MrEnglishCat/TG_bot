@@ -3,10 +3,11 @@ from pprint import pprint
 import random
 import requests
 import time
+from global_data import BOT_TOKEN
 
 
 API_URL = 'https://api.telegram.org/bot'
-BOT_TOKEN = '5675787956:AAGC4I7xJ6m33OYWJ981SCYo75GKlkvEv9w'
+
 TEXT = 'Ура! Классный апдейт!'
 
 
