@@ -36,6 +36,7 @@ async def send_photo_echo(message: Message):
 async def send_animation(message: Message):
     pprint(message)
     await message.reply_animation(message.sticker.file_id)
+    # await message.answer_animation(message.sticker.file_id)
 
 # Этот хэндлер будет срабатывать на любые ваши текстовые сообщения,
 # кроме команд "/start" и "/help"
