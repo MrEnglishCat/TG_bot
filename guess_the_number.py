@@ -9,6 +9,7 @@ bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
 class Gamer:
+    attempts = 5
     def __init__(self, name:str, score:int,  isgame:bool):
         self.name = name
         self.score = score
