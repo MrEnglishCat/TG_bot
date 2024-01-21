@@ -25,7 +25,6 @@ async def start(message:Message):
 
 @dp.message()
 async def start(message:Message):
-    print(gamer.name, gamer.score, gamer.isgame)
     await message.send_copy(chat_id=message.chat.id)
 
 
