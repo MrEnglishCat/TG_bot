@@ -7,6 +7,13 @@ from aiogram import F
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
+class Gamer:
+    def __init__(self, name:str, score:int, isgame:bool):
+        self.name = name
+        self.score = score
+        self.isgame = isgame
+
+
 @dp.message(Command(commands=['start']))
 async def start(message:Message):
     await message.reply(text="Let's starts!!!")
