@@ -1,3 +1,4 @@
+import json
 import random
 
 from global_data import BOT_TOKEN
@@ -12,12 +13,7 @@ dp = Dispatcher()
 
 ATTEMPTS = 5
 
-user = {'in_game': False,
-        'secret_number': None,
-        'attempts': None,
-        'total_games': 0,
-        'wins': 0
-        }
+user = {}
 
 def get_random_number():
     return random.randint(1, 100)
@@ -39,16 +35,23 @@ async def process_help_command(message: Message):
 
 @dp.message(Command(commands='stat'))
 async def process_stat_command(message:Message):
-    await message.answer(
-        f'Всего игр сыграно: {user["total_games"]}\n'
-        f'Игр выиграно: {user["wins"]}'
-    )
+    if user:
+        await message.answer(
+            f'ID игрока: {message.from_user.id}\n'
+            f'Текущее имя игрока: {message.from_user.username}\n'
+            f'Всего игр сыграно: {user[message.from_user.id]["total_games"]}\n'
+            f'Игр выиграно: {user[message.from_user.id]["wins"]}'
+        )
+    else:
+        await message.answer(
+            f'Статистика пуста!'
+        )
 
 # Этот хэндлер будет срабатывать на команду "/cancel"
 @dp.message(Command(commands='cancel'))
 async def process_cancel_command(message: Message):
-    if user['in_game']:
-        user['in_game'] = False
+    if user[message.from_user.id]['in_game']:
+        user[message.from_user.id]['in_game'] = False
         await message.answer(
             'Вы вышли из игры. Если захотите сыграть '
             'снова - напишите об этом'
@@ -61,12 +64,21 @@ async def process_cancel_command(message: Message):
 
 # Этот хэндлер будет срабатывать на согласие пользователя сыграть в игру
 @dp.message(F.text.lower().in_(['да', 'давай', 'сыграем', 'игра',
-                                'играть', 'хочу играть']))
+                                'играть', 'хочу играть', 'еще', 'ещё']))
 async def process_positive_answer(message: Message):
-    if not user['in_game']:
-        user['in_game'] = True
-        user['secret_number'] = get_random_number()
-        user['attempts'] = ATTEMPTS
+    if not message.from_user.id in user:
+        user.setdefault(message.from_user.id, {
+            'in_game': False,
+            'secret_number': None,
+            'attempts': None,
+            'total_games': 0,
+            'wins': 0
+        })
+
+    if not user[message.from_user.id]['in_game']:
+        user[message.from_user.id]['in_game'] = True
+        user[message.from_user.id]['secret_number'] = get_random_number()
+        user[message.from_user.id]['attempts'] = ATTEMPTS
         await message.answer(
             'Ура!\n\nЯ загадал число от 1 до 100, '
             'попробуй угадать!'
@@ -82,7 +94,7 @@ async def process_positive_answer(message: Message):
 # Этот хэндлер будет срабатывать на отказ пользователя сыграть в игру
 @dp.message(F.text.lower().in_(['нет', 'не', 'не хочу', 'не буду']))
 async def process_negative_answer(message: Message):
-    if not user['in_game']:
+    if not user[message.from_user.id]['in_game']:
         await message.answer(
             'Жаль :(\n\nЕсли захотите поиграть - просто '
             'напишите об этом'
@@ -95,30 +107,34 @@ async def process_negative_answer(message: Message):
 
 @dp.message(lambda x: x.text and x.text.isdigit() and 1 <= int(x.text) <= 100)
 async def process_numbers_answer(message: Message):
-    if user.get('in_game'):
-        if int(message.text) < user.get('secret_number'):
-            user['attempts'] -= 1
+    if user[message.from_user.id].get('in_game'):
+        if int(message.text) < user[message.from_user.id].get('secret_number'):
+            user[message.from_user.id]['attempts'] -= 1
 
-            await message.reply(f"Вы выбрали число меньше чем я загадал!")
-        elif int(message.text) > user.get('secret_number'):
-            user['attempts'] -= 1
+            await message.reply(f"Вы выбрали число меньше чем я загадал!\nОсталось попыток: {user[message.from_user.id].get('attempts')}")
+        elif int(message.text) > user[message.from_user.id].get('secret_number'):
+            user[message.from_user.id]['attempts'] -= 1
 
-            await message.reply(f"Вы выбрали число больше чем я загадал!")
+            await message.reply(f"Вы выбрали число больше чем я загадал!\nОсталось попыток: {user[message.from_user.id].get('attempts')} ")
         else:
-            user['in_game'] = False
+            user[message.from_user.id]['in_game'] = False
 
-            user['wins'] += 1
-            user['attempts'] = ATTEMPTS
-            user['total_games'] += 1
-            await message.reply(f"Вы победили! Было загадано {user['secret_number']}\nХотите сыграть ещё?")
+            user[message.from_user.id]['wins'] += 1
+            user[message.from_user.id]['attempts'] = ATTEMPTS
+            user[message.from_user.id]['total_games'] += 1
+            await message.reply(f"Вы победили! Было загадано {user[message.from_user.id]['secret_number']}\nХотите сыграть ещё?")
     else:
         await message.reply(f"Мы еще не играем. Хотите сыграть?")
 
-    if not user.get('attempts'):
-        user['in_game'] = False
-        user['attempts'] = ATTEMPTS
-        user['total_games'] += 1
+    if not user[message.from_user.id].get('attempts'):
+        user[message.from_user.id]['in_game'] = False
+        user[message.from_user.id]['attempts'] = ATTEMPTS
+        user[message.from_user.id]['total_games'] += 1
         await message.reply(f"Игра завершена\nХотите сыграть ещё?")
+
+@dp.message(Command(commands='get_dict'))
+async def get_dict(message:Message):
+    await message.reply(f"{json.dumps(user) if user else 'Игроков не найдено!!! =('}")
 
 @dp.message()
 async def start(message:Message):
