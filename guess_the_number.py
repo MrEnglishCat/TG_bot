@@ -36,7 +36,11 @@ ATTEMPTS = 5
 
 user = {}
 
+def cpomparator(item):
+    return isinstance(item, int) and not item // 7
 
+def custom_filter(some_list:list):
+    return sum(filter(lambda item: isinstance(item, int) and not item // 7, some_list)) > 83
 
 
 def get_random_number():
