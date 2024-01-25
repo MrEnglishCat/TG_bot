@@ -1,13 +1,18 @@
 import json
 import random
 
-from global_data import BOT_TOKEN
+# from global_data import BOT_TOKEN
 from aiogram import Bot, Dispatcher
 from aiogram.filters import Command, CommandStart
 from aiogram.types import Message, ContentType
 from aiogram import F
 from random import randint
+from environs import Env
 
+env = Env()
+env.read_env()
+
+BOT_TOKEN = env('BOT_TOKEN')
 
 class User:
     def __init__(self, used_id=None, in_game:bool=False, secret_number:int=None, attempts:int=None, total_games:int=0, wins:int=0):
@@ -36,7 +41,7 @@ ATTEMPTS = 5
 
 user = {}
 
-def cpomparator(item):
+def comparator(item):
     return isinstance(item, int) and not item // 7
 
 def custom_filter(some_list:list):

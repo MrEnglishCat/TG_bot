@@ -3,10 +3,13 @@ from pprint import pprint
 from aiogram import Bot, Dispatcher
 from aiogram.filters import Command
 from aiogram.types import Message, ContentType
-from global_data import BOT_TOKEN
 from aiogram import F
+from environs import Env
 
+env = Env()
+env.read_env()
 
+BOT_TOKEN = env('BOT_TOKEN')
 # Создаем объекты бота и диспетчера
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()

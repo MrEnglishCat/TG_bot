@@ -3,8 +3,13 @@ from pprint import pprint
 import random
 import requests
 import time
-from global_data import BOT_TOKEN
+# from global_data import BOT_TOKEN
+from environs import Env
 
+env = Env()
+env.read_env()
+
+BOT_TOKEN = env('BOT_TOKEN')
 
 API_URL = 'https://api.telegram.org/bot'
 
