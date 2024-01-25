@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a80c82b-a27e-47d9-8832-a408826f9a07" name="Changes" comment="guess_the_number.py update.add.start">
-      <change afterPath="$PROJECT_DIR$/logging/log_filters.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logging/logging_settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logging/module_1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logging/module_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logging/module_3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot_with_button.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nex_bot_with_buttons.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/echo_bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/echo_bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/get_random_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/get_random_image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guess_the_number.py" beforeDir="false" afterPath="$PROJECT_DIR$/guess_the_number.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logging/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/logging/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,10 +35,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.bot_with_button.executor": "Run",
     "Python.echo_bot.executor": "Run",
     "Python.guess_the_number.executor": "Run",
     "Python.main.executor": "Run",
     "Python.new_test.executor": "Run",
+    "Python.nex_bot_with_buttons.executor": "Run",
     "Python.test (1).executor": "Run",
     "Python.test.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -60,8 +54,8 @@
       <recent name="F:\Antoneko\SCRIPTS\freelance\TG_bot\logging" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.new_test">
-    <configuration name="echo_bot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.bot_with_button">
+    <configuration name="bot_with_button" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TG_bot" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -74,7 +68,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/echo_bot.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bot_with_button.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -105,28 +99,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="guess_the_number" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="TG_bot" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/guess_the_number.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="new_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TG_bot" />
       <option name="ENV_FILES" value="" />
@@ -141,6 +113,28 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="nex_bot_with_buttons" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TG_bot" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/nex_bot_with_buttons.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -195,11 +189,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.bot_with_button" />
+        <item itemvalue="Python.nex_bot_with_buttons" />
         <item itemvalue="Python.new_test" />
         <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.guess_the_number" />
-        <item itemvalue="Python.echo_bot" />
       </list>
     </recent_temporary>
   </component>
@@ -379,7 +373,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706175295893</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="guess_the_number.py update.add.start">
+      <option name="closed" value="true" />
+      <created>1706189537237</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1706189537237</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
