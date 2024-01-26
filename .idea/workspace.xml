@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a80c82b-a27e-47d9-8832-a408826f9a07" name="Changes" comment="guess_the_number.py update.add.start">
-      <change afterPath="$PROJECT_DIR$/rock_paper_scissors_bot/bot.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rock_paper_scissors_bot/config_data/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rock_paper_scissors_bot/handlers/other_handlers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rock_paper_scissors_bot/handlers/user_handlers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rock_paper_scissors_bot/keyboards/keyboards.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rock_paper_scissors_bot/lexicon/lexicon_ru.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rock_paper_scissors_bot/services/services.py" afterDir="false" />
+    <list default="true" id="5a80c82b-a27e-47d9-8832-a408826f9a07" name="Changes" comment="new first bot =)">
+      <change afterPath="$PROJECT_DIR$/rock_paper_scissors_bot/bot_data/keyboards/keyboards.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rock_paper_scissors_bot/bot_data/services/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rock_paper_scissors_bot/bot_data/services/services.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rock_paper_scissors_bot/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/rock_paper_scissors_bot/bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rock_paper_scissors_bot/config_data/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/rock_paper_scissors_bot/bot_data/config_data/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rock_paper_scissors_bot/handlers/other_handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/rock_paper_scissors_bot/bot_data/handlers/other_handlers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rock_paper_scissors_bot/handlers/user_handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/rock_paper_scissors_bot/bot_data/handlers/user_handlers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rock_paper_scissors_bot/keyboards/keyboards.py" beforeDir="false" afterPath="$PROJECT_DIR$/rock_paper_scissors_bot/bot_data/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rock_paper_scissors_bot/lexicon/lexicon_ru.py" beforeDir="false" afterPath="$PROJECT_DIR$/rock_paper_scissors_bot/bot_data/lexicon/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rock_paper_scissors_bot/services/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/rock_paper_scissors_bot/bot_data/lexicon/lexicon_ru.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,28 +41,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.bot.executor": "Run",
-    "Python.bot_with_button.executor": "Run",
-    "Python.echo_bot.executor": "Run",
-    "Python.guess_the_number.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.new_test.executor": "Run",
-    "Python.nex_bot_with_buttons.executor": "Run",
-    "Python.test (1).executor": "Run",
-    "Python.test.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "F:/Antoneko/SCRIPTS/freelance/TG_bot/rock_paper_scissors_bot"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.bot.executor&quot;: &quot;Run&quot;,
+    &quot;Python.bot_with_button.executor&quot;: &quot;Run&quot;,
+    &quot;Python.echo_bot.executor&quot;: &quot;Run&quot;,
+    &quot;Python.guess_the_number.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.new_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.nex_bot_with_buttons.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/Antoneko/SCRIPTS/freelance/TG_bot/rock_paper_scissors_bot&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Antoneko\SCRIPTS\freelance\TG_bot\rock_paper_scissors_bot" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Antoneko\SCRIPTS\freelance\TG_bot\rock_paper_scissors_bot\bot_data" />
       <recent name="F:\Antoneko\SCRIPTS\freelance\TG_bot\logging" />
     </key>
   </component>
@@ -209,7 +213,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
+        <option value="bundled-python-sdk-5a2391486177-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13763.11" />
       </set>
     </attachedChunks>
   </component>
@@ -398,13 +402,22 @@
       <option name="project" value="LOCAL" />
       <updated>1706202187672</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="new first bot =)">
+      <option name="closed" value="true" />
+      <created>1706205558128</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1706205558128</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="second commit" />
     <MESSAGE value="guess_the_number.py update.add.start" />
-    <option name="LAST_COMMIT_MESSAGE" value="guess_the_number.py update.add.start" />
+    <MESSAGE value="new first bot =)" />
+    <option name="LAST_COMMIT_MESSAGE" value="new first bot =)" />
   </component>
 </project>

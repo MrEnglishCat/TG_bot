@@ -1,28 +1,31 @@
-from config_data.config import load_config
+import asyncio
+import logging
+
+from rock_paper_scissors_bot.bot_data.config_data.config import load_config
 from aiogram import Bot, Dispatcher
-from aiogram.types import Message
-from aiogram.filters import CommandStart
-from handlers import user_handlers, other_handlers
+from rock_paper_scissors_bot.bot_data.handlers import user_handlers, other_handlers
+
+logger = logging.getLogger(__name__)
+
+async def main():
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(filename)s:%(lineno)d #%(levelname)-8s '
+               '[%(asctime)s] - %(name)s - %(message)s')
 
 
-bot = Bot(token=load_config('.env').tg_bot.token)
-dp = Dispatcher()
+    bot = Bot(token=load_config('.env').tg_bot.token, parse_mode='HTML')
+    dp = Dispatcher()
+    logger.info('Starting bot')
 
-user = {
-    'bot_item': None,
-    'user_item': None,
-    'win': None,
-    'total_games': 0
-}
 
-# dp.include_router(user_handlers.router)
-# dp.include_router(other_handlers.router)
+    dp.include_routers(
+        user_handlers.router,
+        other_handlers.router
+    )
 
-dp.include_routers(
-    user_handlers.router,
-    other_handlers.router
-)
+    await bot.delete_webhook(drop_pending_updates=True)
+    await dp.start_polling(bot)
 
 if __name__ == '__main__':
-    dp.run_polling(bot)
-
+    asyncio.run(main())
