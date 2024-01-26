@@ -5,6 +5,6 @@ LEXICON_RU = {
     '/cansel':'Игра остановлена, победил Бот!\nЖелаете сыграть еще раз? =)',
     'yes':'Игра начинается! Бот выбрал свой вариант! Выберите ваш, нажав кнопку ниже',
     'no':'Спасибо за внимание!\nЗаходите еще! =)',
-    'answer': lambda name_winner, value_w, losers_name, value_l: f"В этой игре победил <b>{name_winner}</b> ({value_w}).\nПроиграл <b>{losers_name}</b> ({value_l})!\nЖелаете сыграть еще  раз?",
+    'answer': lambda name_winner, value_w, losers_name, value_l: f"В этой игре победил <b color='red'>{name_winner}</b> ({value_w}).\nПроиграл <b>{losers_name}</b> ({value_l})!\nЖелаете сыграть еще  раз?",
     'no_echo': 'Управление мной работает только посредством кнопок! ;)'
 }
