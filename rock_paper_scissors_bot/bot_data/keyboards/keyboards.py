@@ -1,4 +1,6 @@
 from aiogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove, KeyboardButton
+from aiogram.utils.keyboard import ReplyKeyboardBuilder
+
 
 button_yes = KeyboardButton(text='Да')
 button_no = KeyboardButton(text='Нет')
@@ -11,3 +13,5 @@ button_scissors = KeyboardButton(text='Ножницы ✂️')
 button_paper = KeyboardButton(text='Бумага 📜')
 
 kb_for_game = ReplyKeyboardMarkup(keyboard=[[button_stone], [button_scissors], [button_paper]], resize_keyboard=True, one_time_keyboard=False)
+
+
