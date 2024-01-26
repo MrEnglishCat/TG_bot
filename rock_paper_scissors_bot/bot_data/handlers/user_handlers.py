@@ -100,7 +100,6 @@ async def process_paper_command(message: Message):
 
 @router.message(Command('stat'))
 async def process_stat_commands(message: Message):
-    pprint(user)
     await message.answer(
         text=f'Name: {message.from_user.username}\nTotal games: {user[message.from_user.id]["total_games"]}' if user and user[message.from_user.id] else 'Статистики пока что нет!'
     )
