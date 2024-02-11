@@ -32,11 +32,13 @@ def print_game_field(message):
     if len(message.text) < 3 or len(message.text) >= 4:
         bot.send_message(message.chat.id, f"[?] Неверный формат ввода: {message.text}")
         return
+
     if message.text[2] != CURRENT_PALYER[0]:
         mess = f'Вы потеряли ход! Сейчас должен был ходить {CURRENT_PALYER[0]}, вы ввели {message.text[2]}\n\n'
         change_current_palayer(CURRENT_PALYER)
         bot.send_message(message.chat.id, f'{mess}Ваш ход: {CURRENT_PALYER[0]}\n\n{game.print_game_field()}')
         return
+
     inp_val = game.input_value(message.text[:2], message.text[2])
     is_win = game.check_is_game_end()
     if '[?]' in inp_val:
@@ -47,6 +49,7 @@ def print_game_field(message):
         bot.send_message(message.chat.id, f'Победил: {is_win}')
         game.clear_data()
         return
+
     change_current_palayer(CURRENT_PALYER)
     bot.send_message(message.chat.id, f"Ваш ход: {CURRENT_PALYER[0]}\n\n{game.print_game_field()}")
 
