@@ -11,7 +11,8 @@ bot = telebot.TeleBot(os.getenv('BOT_TOKEN'))
 
 @bot.message_handler(commands=['start'])
 def start(message):
-	bot.reply_to(message, game.print_game_field())
+	game.clear_data()
+	bot.reply_to(message, f"Новая игра началась!\n\n{game.print_game_field()}")
 
 @bot.message_handler(func=lambda message: message.text == 'print')
 def start(message):

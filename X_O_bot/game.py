@@ -88,11 +88,12 @@ def input_value(input_value, value):
 
 
 def print_game_field():
+    tab = '\t' * 20
     str_result = 'Данные вводятся в формате: 1a\n'
-    str_result += f" \t\ta\t\tb\t\tc\n"
-    str_result += f"1\t\t{data[ROW1][COLA]}\t\t{data[ROW1][COLB]}\t\t{data[ROW1][COLC]}\n"
-    str_result += f"2\t\t{data[ROW2][COLA]}\t\t{data[ROW2][COLB]}\t\t{data[ROW2][COLC]}\n"
-    str_result += f"3\t\t{data[ROW3][COLA]}\t\t{data[ROW3][COLB]}\t\t{data[ROW3][COLC]}\n"
+    str_result += f"{tab} \t\ta\t\tb\t\tc\n"
+    str_result += f"{tab}1\t\t{data[ROW1][COLA]}\t\t{data[ROW1][COLB]}\t\t{data[ROW1][COLC]}\n"
+    str_result += f"{tab}2\t\t{data[ROW2][COLA]}\t\t{data[ROW2][COLB]}\t\t{data[ROW2][COLC]}\n"
+    str_result += f"{tab}3\t\t{data[ROW3][COLA]}\t\t{data[ROW3][COLB]}\t\t{data[ROW3][COLC]}\n"
     return str_result
 
 
