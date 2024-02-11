@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a80c82b-a27e-47d9-8832-a408826f9a07" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/test_bots/create_bot_menu.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_bots/create_inline_menu.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,22 +47,24 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "F:/Antoneko/SCRIPTS/freelance/TG_bot/template_for_create_bots"
+    "last_opened_file_path": "F:/Antoneko/SCRIPTS/freelance/TG_bot/X_O_bot"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Antoneko\SCRIPTS\freelance\TG_bot\X_O_bot" />
       <recent name="F:\Antoneko\SCRIPTS\freelance\TG_bot\template_for_create_bots" />
       <recent name="F:\Antoneko\SCRIPTS\freelance\TG_bot\rock_paper_scissors_bot" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Antoneko\SCRIPTS\freelance\TG_bot\X_O_bot" />
       <recent name="F:\Antoneko\SCRIPTS\freelance\TG_bot\test_bots" />
       <recent name="F:\Antoneko\SCRIPTS\freelance\TG_bot\template_for_create_bots" />
       <recent name="F:\Antoneko\SCRIPTS\freelance\TG_bot\rock_paper_scissors_bot\bot_data" />
       <recent name="F:\Antoneko\SCRIPTS\freelance\TG_bot\logging" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.create_inline_menu">
+  <component name="RunManager" selected="Python.main">
     <configuration name="bot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TG_bot" />
       <option name="ENV_FILES" value="" />
@@ -175,7 +175,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="nex_bot_with_buttons" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TG_bot" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -188,7 +188,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="F:\Antoneko\SCRIPTS\freelance\TG_bot\test_bots\nex_bot_with_buttons.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -199,11 +199,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.create_inline_menu" />
         <item itemvalue="Python.create_bot_menu" />
         <item itemvalue="Python.bot" />
         <item itemvalue="Python.bot_with_button" />
-        <item itemvalue="Python.nex_bot_with_buttons" />
       </list>
     </recent_temporary>
   </component>
@@ -447,7 +447,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706303428442</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="update">
+      <option name="closed" value="true" />
+      <created>1706333847170</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1706333847170</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
