@@ -52,7 +52,8 @@ class DataClient(ABC):
         pattern_date = "%d-%m-%Y"
         with open(f'{datetime.now().strftime(pattern_date)} kufar_mebel.csv', 'w', encoding='utf-8-sig',
                   newline='') as f:
-            writer = csv.DictWriter(f, fieldnames=('LINK', 'PRICE', 'DESCRIPTION'), delimiter=';', quoting=csv.QUOTE_ALL)
+            writer = csv.DictWriter(f, fieldnames=('LINK', 'PRICE', 'DESCRIPTION'), delimiter=';',
+                                    quoting=csv.QUOTE_ALL)
             writer.writeheader()
             for item in self.data:
                 writer.writerow(item)
@@ -83,7 +84,8 @@ class DataClient(ABC):
             with open(*file_name, encoding='utf-8-sig') as from_file:
                 reader = csv.DictReader(from_file, delimiter=';', quoting=csv.QUOTE_ALL)
                 for num, line in enumerate(reader, 1):
-                    print(f"{num}) {line.get('LINK', '[INFO] Значения в файле нет!')}\n\t\t{line.get('PRICE', '[INFO] Значения в файле нет!')}\n\t\t{line.get('DESCRIPTION', '[INFO] Значения в файле нет!')}")
+                    print(
+                        f"{num}) {line.get('LINK', '[INFO] Значения в файле нет!')}\n\t\t{line.get('PRICE', '[INFO] Значения в файле нет!')}\n\t\t{line.get('DESCRIPTION', '[INFO] Значения в файле нет!')}")
             return
         print(f'Список доступных файлов: {file_name}')
 
