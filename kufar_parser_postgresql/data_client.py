@@ -2,6 +2,7 @@ from pprint import pprint
 
 import requests
 import csv
+import pandas as pd
 from abc import abstractmethod, ABC
 from bs4 import BeautifulSoup
 from datetime import datetime
@@ -10,7 +11,9 @@ from datetime import datetime
 class DataClient(ABC):
     data = None
     urls = 'https://www.kufar.by/l/mebel'
-
+    _fieldnames = ('LINK', 'PRICE', 'DESCRIPTION')
+    # _pattern = "%d-%m-%Y %H.%M"
+    _pattern_date = "%d-%m-%Y"
     @abstractmethod
     def connect_to_db(self):
         pass
@@ -48,19 +51,22 @@ class DataClient(ABC):
             )
 
     def write_to_csv(self):
-        # pattern = "%d-%m-%Y %H.%M"
-        pattern_date = "%d-%m-%Y"
-        with open(f'{datetime.now().strftime(pattern_date)} kufar_mebel.csv', 'w', encoding='utf-8-sig',
+
+        with open(f'{datetime.now().strftime(self._pattern_date)} kufar_mebel.csv', 'w', encoding='utf-8-sig',
                   newline='') as f:
-            writer = csv.DictWriter(f, fieldnames=('LINK', 'PRICE', 'DESCRIPTION'), delimiter=';',
-                                    quoting=csv.QUOTE_ALL)
+            writer = csv.DictWriter(f, fieldnames=self._fieldnames, delimiter=';')
             writer.writeheader()
             for item in self.data:
                 writer.writerow(item)
 
+
+    def write_to_csv_pandas(self):
+        df = pd.DataFrame(self.data)
+        df.to_csv(f'{datetime.now().strftime(self._pattern_date)} kufar_mebel.csv', sep=';', encoding='utf-8-sig', index=False)
+
+
     @staticmethod
     def get_csv_filename():
-
         import os
         import re
 
@@ -76,13 +82,16 @@ class DataClient(ABC):
     def read_from_csv(self):
         '''
         МОДУЛЬ CSV
+        кодировка "utf-8-sig" мне на работе позволила не волноваться в
+        какой программе открывать файл. Программы под линукс, или windows русский текст при
+        такой кодировке распознавали =)
         :param file_name:
         :return: None
         '''
         file_name = self.get_csv_filename()
         if isinstance(file_name, list) and len(file_name) == 1:
             with open(*file_name, encoding='utf-8-sig') as from_file:
-                reader = csv.DictReader(from_file, delimiter=';', quoting=csv.QUOTE_ALL)
+                reader = csv.DictReader(from_file, delimiter=';')
                 for num, line in enumerate(reader, 1):
                     print(
                         f"{num}) {line.get('LINK', '[INFO] Значения в файле нет!')}\n\t\t{line.get('PRICE', '[INFO] Значения в файле нет!')}\n\t\t{line.get('DESCRIPTION', '[INFO] Значения в файле нет!')}")
@@ -95,11 +104,23 @@ class DataClient(ABC):
         :param file_name:
         :return: None
         '''
-        import pandas
+
+        from itertools import zip_longest
+
         file_name = self.get_csv_filename()
+        fieldnames = ['LINK', 'PRICE', 'DESCRIPTION']
+        message_info = '[INFO] Значения в файле нет!'
         if isinstance(file_name, list) and len(file_name) == 1:
-            df = pandas.read_csv(*file_name)
-            print(df.head(10))
+            df = pd.read_csv(*file_name, delimiter=';', encoding='utf-8-sig')
+            for num, line in enumerate(df.values.tolist()):
+                # print(str(line[2]))
+                # break
+                line = dict(zip_longest(fieldnames, line))
+                link = line.get('LINK')
+                price = line.get('PRICE')
+                description = line.get('DESCRIPTION')
+                print(
+                    f"{num}) {link if str(link) != 'nan' else message_info}\n\t\t{price if str(price) != 'nan' else message_info}\n\t\t{description if str(description) != 'nan' else message_info}")
 
             return
         print(f'Список доступных файлов: {file_name}')
@@ -121,7 +142,10 @@ class DataClient(ABC):
 
     def run(self):
         self.get_data_from_url()
-        self.write_to_csv()
+
+        # self.write_to_csv()
+        # self.write_to_csv_pandas()
+
         connection_to_db = self.connect_to_db()
         self.create_table_db(connection_to_db)
         self.insert_to_db(connection_to_db)

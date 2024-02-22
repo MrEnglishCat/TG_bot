@@ -61,6 +61,12 @@ class Parser_sqlite(DataClient):
 
 
 mebel2 = Parser_sqlite()
+        # PANDAS
+# mebel2.write_to_csv_pandas()
+# mebel2.read_from_csv_with_pandas()
+
+        # CSV
+# mebel2.write_to_csv()
 # mebel2.read_from_csv()
-mebel2.read_from_csv_with_pandas()
-# mebel2.run()
+
+mebel2.run()
